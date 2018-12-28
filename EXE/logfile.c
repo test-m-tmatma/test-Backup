@@ -247,12 +247,12 @@ static void CheckLogFileSize(void)
     _TCHAR Tmp[MY_MAX_PATH+1+15];
     WIN32_FIND_DATA FindBuf;
     HANDLE fHnd;
-    int Max;
 
     if((LogSwitch == LOG_SW_APPEND) && (LogLimit > 0))
     {
         if((ftell(LogStrm) / 1024) >= LogLimit)
         {
+            int Max;
             CloseLogfile();
 
             Max = 0;
